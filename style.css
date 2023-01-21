@@ -3,25 +3,36 @@ body {
 }
 
 .main-body {
+  display: flex;
   height: 100vh;
   width: 100vw;
-  display: flex;
   justify-content: center;
   align-items: center;
-  border: 10px;
-  border-color: black;
   background-color: yellow;
-  margin: 0px;
 }
 
 .sketchpad {
-  width: 500px;
-  height: 500px;
+  display: flex;
+  width: 480px;
+  height: 480px;
+  justify-content: center;
+  align-items: center;
   border-color: black;
   border: 5px;
   border-style: solid;
+  margin: 0px;
+  gap: 0px;
 }
 .screen {
   display: flex;
-  flex: 1;
+  flex: none;
+  width: 480px;
+  height: 480px;
+  border: 5px solid red;
+  flex-wrap: wrap;
+}
+.square {
+  box-sizing: border-box;
+  height: 30px;
+  width: 30px;
 }
