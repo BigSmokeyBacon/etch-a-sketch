@@ -39,3 +39,9 @@ body {
 .sqcolor {
   background-color: black;
 }
+
+.square2 {
+  box-sizing: border-box;
+  height: 60px;
+  width: 60px;
+}
