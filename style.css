@@ -45,6 +45,16 @@ body {
   height: 60px;
   width: 60px;
 }
+.square4 {
+  box-sizing: border-box;
+  height: 120px;
+  width: 120px;
+}
+.square64 {
+  box-sizing: border-box;
+  height: 7.5px;
+  width: 7.5px;
+}
 
 .hidden {
   display: none;
