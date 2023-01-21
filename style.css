@@ -31,7 +31,7 @@ body {
   border: 5px solid red;
   flex-wrap: wrap;
 }
-.square {
+.square16 {
   box-sizing: border-box;
   height: 30px;
   width: 30px;
@@ -40,8 +40,12 @@ body {
   background-color: black;
 }
 
-.square2 {
+.square8 {
   box-sizing: border-box;
   height: 60px;
   width: 60px;
+}
+
+.hidden {
+  display: none;
 }
