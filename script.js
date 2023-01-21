@@ -10,6 +10,7 @@ const gridItem16 = [];
 const gridItem8 = [];
 let click = true;
 let playerInput;
+
 sketchpad.appendChild(container16);
 sketchpad.appendChild(container8);
 container16.classList.add('screen', '16');
@@ -27,7 +28,6 @@ btnEraser.addEventListener('click', function () {
 });
 
 function addGridItem16() {
-  console.log(gridItem16);
   container16.classList.remove('hidden');
   container8.classList.add('hidden');
 
@@ -55,12 +55,6 @@ function addGridItem16() {
   }
 }
 function addGridItem8() {
-  // for (let i = gridItem.length; i > 0; i--) {
-  //   gridItem.pop();
-  // }
-  // gridItem.splice(0, gridItem.length);
-  console.log(playerInput);
-  console.log(gridItem8.length);
   container16.classList.add('hidden');
   container8.classList.remove('hidden');
   playerInput = 8 * 8;
@@ -86,111 +80,6 @@ function addGridItem8() {
     return;
   }
 }
-// addGridItem(16);
-// console.log(gridItem);
-// console.log(container16);
 
-// console.log(gridItem[0].classList.contains('square'));
-// function emptyGridItem() {
-//   for (let i = 0; i < gridItem.length; ) {
-//     if (gridItem[i].classList.contains('square')) {
-//       container16.removeChild(div);
-//     } else {
-//       i++;
-//     }
-//   }
-// }
-// emptyGridItem();
-// console.log(gridItem);
 btn16.addEventListener('click', addGridItem16);
 btn8.addEventListener('click', addGridItem8);
-// btn16.addEventListener('click', function () {
-//   gridItem = 0;
-//   addGridItem(16);
-//   // click = true;
-//   console.log(click);
-//   if (sketchpad.classList.contains('eight')) {
-//     sketchpad.removeChild(container8);
-//     sketchpad.classList.remove('eight');
-//   }
-//   sketchpad.appendChild(container16);
-//   container16.classList.add('screen');
-//   playerInput = 16 * 16;
-//   if (click) {
-//     while (playerInput > 0) {
-//       playerInput--;
-//       const grid = document.createElement('div');
-//       if (click) {
-//         grid.style.borderStyle = 'solid';
-//         grid.style.borderColor = 'black';
-//         grid.style.borderWidth = '1px';
-//         grid.classList.add('square');
-
-//         grid.addEventListener('mouseover', function () {
-//           grid.classList.add('sqcolor');
-//           if (btnColor.classList.contains('active')) {
-//             grid.classList.add('sqcolor');
-//           } else {
-//             grid.classList.remove('sqcolor');
-//           }
-//         });
-//         container16.appendChild(grid);
-//       } else {
-//         container16.removeChild(grid);
-//       }
-//     }
-//   }
-//   click = false;
-//   sketchpad.classList.add('sixteen');
-//   console.log(click);
-// });
-
-console.log(sketchpad.classList.contains('sixteen'));
-// btn8.addEventListener('click', function () {
-//   gridItem = 0;
-//   console.log(click);
-//   if (sketchpad.classList.contains('sixteen')) {
-//     sketchpad.removeChild(container16);
-//     sketchpad.classList.remove('sixteen');
-//   }
-//   sketchpad.appendChild(container8);
-//   container8.classList.add('screen');
-//   playerInput = 8 * 8;
-//   while (playerInput > 0) {
-//     playerInput--;
-//     const grid = document.createElement('div');
-//     grid.style.borderStyle = 'solid';
-//     grid.style.borderColor = 'black';
-//     grid.style.borderWidth = '1px';
-//     grid.classList.add('square2');
-
-//     grid.addEventListener('mouseover', function () {
-//       grid.classList.add('sqcolor');
-//       if (btnColor.classList.contains('active')) {
-//         grid.classList.add('sqcolor');
-//       } else {
-//         grid.classList.remove('sqcolor');
-//       }
-//     });
-//     container8.appendChild(grid);
-//   }
-//   sketchpad.classList.add('eight');
-//   click = true;
-//   console.log(click);
-// });
-
-// grid loop
-// addGridItem();
-// container16.appendChild(gridItem[0]);
-// console.log(gridItem);
-// console.log(addGridItem());
-// let playerInput = 16 * 16;
-
-// grid.addEventListener('mouseover', function () {
-//   grid.classList.add('sqcolor');
-// });
-
-btn16;
-
-console.log(click);
-console.log(container16);
