@@ -13,5 +13,9 @@ while (playerInput > 0) {
   grid.style.borderColor = 'black';
   grid.style.borderWidth = '1px';
   grid.classList.add('square');
+
+  grid.addEventListener('mouseover', function () {
+    grid.classList.toggle('sqcolor');
+  });
   container.appendChild(grid);
 }
