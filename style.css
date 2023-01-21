@@ -1,0 +1,23 @@
+body {
+  margin: 0px;
+}
+
+.main-body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 10px;
+  border-color: black;
+  background-color: yellow;
+  margin: 0px;
+}
+
+.sketchpad {
+  height: 500px;
+  width: 500px;
+  border-color: black;
+  border: 5px;
+  border-style: solid;
+}
