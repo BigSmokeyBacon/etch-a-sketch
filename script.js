@@ -127,11 +127,3 @@ btn64.addEventListener('click', setGrid);
 btn16.addEventListener('click', setGrid);
 btn8.addEventListener('click', setGrid);
 btn4.addEventListener('click', setGrid);
-
-console.log(modeActive);
-
-const hello = document.querySelector('.hello');
-
-hello.addEventListener('click', function () {
-  console.log(modeActive);
-});
