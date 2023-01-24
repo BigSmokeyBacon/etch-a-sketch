@@ -53,3 +53,7 @@ body {
 .hidden {
   display: none;
 }
+.active {
+  background-color: black;
+  color: white;
+}
