@@ -5,6 +5,7 @@ const sketchpad = document.querySelector('.sketchpad');
 const btnColor = document.querySelector('.color');
 const btnEraser = document.querySelector('.eraser');
 const btnClear = document.querySelector('.clear');
+const btnRainbowMode = document.querySelector('.rainbow');
 
 const btn64 = document.querySelector('.sixtyfour');
 const btn16 = document.querySelector('.sixteen');
