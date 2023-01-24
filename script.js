@@ -18,6 +18,9 @@ let gridItem;
 const btnColorActive = function () {
   btnColor.classList.add('active');
   btnEraser.classList.remove('active');
+  btnColor.classList.add('engaged');
+  btnRainbowMode.classList.remove('engaged');
+  btnRainbowMode.classList.remove('active');
 };
 
 btnColor.addEventListener('click', btnColorActive);
@@ -25,7 +28,24 @@ btnColor.addEventListener('click', btnColorActive);
 btnEraser.addEventListener('click', function () {
   btnColor.classList.remove('active');
   btnEraser.classList.add('active');
+  btnRainbowMode.classList.remove('active');
 });
+
+btnRainbowMode.addEventListener('click', function () {
+  console.log('hello');
+  btnColor.classList.remove('active');
+  btnEraser.classList.remove('active');
+  btnRainbowMode.classList.add('active');
+  btnRainbowMode.classList.add('engaged');
+  btnColor.classList.remove('engaged');
+});
+
+const getRandomColor = function () {
+  let a = Math.trunc(Math.random() * 255) + 1;
+  let b = Math.trunc(Math.random() * 255) + 1;
+  let c = Math.trunc(Math.random() * 255) + 1;
+  return `${a}, ${b}, ${c}`;
+};
 
 function generateGridItemAmount(a) {
   sketchpad.innerHTML = '';
@@ -40,26 +60,6 @@ function generateGridItemAmount(a) {
   return gridItem;
 }
 
-const createGrid = function (a) {
-  let gridItems = generateGridItemAmount(a);
-  gridItems.forEach(function (gridItem) {
-    sketchpad.appendChild(gridItem);
-    gridItem.classList.add(`square${a}`);
-    gridItem.addEventListener('mouseover', function () {
-      gridItem.classList.add('sqcolor');
-      if (btnColor.classList.contains('active')) {
-        gridItem.classList.add('sqcolor');
-      } else {
-        gridItem.classList.remove('sqcolor');
-      }
-      btnClear.addEventListener('click', function () {
-        gridItem.classList.remove('sqcolor');
-        btnColorActive();
-      });
-    });
-  });
-};
-createGrid(16);
 const setGrid = function (e) {
   btnColorActive();
 
@@ -78,22 +78,37 @@ const setGrid = function (e) {
   }
 };
 
+const createGrid = function (a) {
+  let gridItems = generateGridItemAmount(a);
+  gridItems.forEach(function (gridItem) {
+    sketchpad.appendChild(gridItem);
+    gridItem.classList.add(`square${a}`);
+    gridItem.addEventListener('mouseover', function () {
+      gridItem.classList.add('sqcolor');
+      if (btnColor.classList.contains('active')) {
+        gridItem.style.backgroundColor = 'black';
+      } else if (btnEraser.classList.contains('active')) {
+        gridItem.style.backgroundColor = 'white';
+      } else if (btnRainbowMode.classList.contains('active')) {
+        console.log('hello');
+        function getRandomRGB() {
+          let randomColor = getRandomColor();
+          return (gridItem.style.backgroundColor = `rgb(${randomColor})`);
+        }
+        getRandomRGB();
+        gridItem.classList.remove('sqcolor');
+      }
+      btnClear.addEventListener('click', function () {
+        gridItem.style.backgroundColor = 'white';
+        gridItem.classList.remove('sqcolor');
+      });
+    });
+  });
+};
+
+createGrid(16);
+
 btn64.addEventListener('click', setGrid);
 btn16.addEventListener('click', setGrid);
 btn8.addEventListener('click', setGrid);
 btn4.addEventListener('click', setGrid);
-
-const getRandomColor = function () {
-  let a = Math.trunc(Math.random() * 255) + 1;
-  let b = Math.trunc(Math.random() * 255) + 1;
-  let c = Math.trunc(Math.random() * 255) + 1;
-  return `${a}, ${b}, ${c}`;
-};
-
-const getRandomRGB = function () {
-  let randomColor = getRandomColor();
-  return (sketchpad.style.borderColor = `rgb(${randomColor})`);
-};
-
-console.log(getRandomRGB());
-console.log(getRandomColor());
