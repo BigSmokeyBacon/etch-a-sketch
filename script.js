@@ -14,12 +14,27 @@ const btn4 = document.querySelector('.four');
 
 let playerInput;
 let gridItem;
+let gridSize;
 let modeActive = true;
+
+const getGridSize = function () {
+  if (gridSize === 16) {
+    createGrid(16);
+  } else if (gridSize === 64) {
+    createGrid(64);
+  } else if (gridSize === 8) {
+    createGrid(8);
+  } else if (gridSize === 4) {
+    createGrid(4);
+  } else {
+    createGrid(16);
+  }
+};
 
 const btnColorActive = function () {
   if (!modeActive) {
     modeActive = true;
-    createGrid(16);
+    getGridSize();
   }
   btnColor.classList.add('active');
   btnEraser.classList.remove('active');
@@ -31,7 +46,7 @@ const btnColorActive = function () {
 const btnRainbowActive = function () {
   if (modeActive) {
     modeActive = false;
-    createGrid(16);
+    getGridSize();
   }
   btnColor.classList.remove('active');
   btnEraser.classList.remove('active');
@@ -78,12 +93,20 @@ const setGrid = function (e) {
   }
 
   if (e.target.innerHTML === '16 x 16') {
+    gridSize = 16;
+    console.log(gridSize);
     createGrid(16);
   } else if (e.target.innerHTML === '8 x 8') {
+    gridSize = 8;
+
     createGrid(8);
   } else if (e.target.innerHTML === '64 x 64') {
+    gridSize = 64;
+
     createGrid(64);
   } else if (e.target.innerHTML === '4 x 4') {
+    gridSize = 4;
+
     createGrid(4);
   }
 };
@@ -127,3 +150,5 @@ btn64.addEventListener('click', setGrid);
 btn16.addEventListener('click', setGrid);
 btn8.addEventListener('click', setGrid);
 btn4.addEventListener('click', setGrid);
+
+console.log(gridSize);
