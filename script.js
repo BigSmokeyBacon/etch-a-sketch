@@ -17,7 +17,10 @@ let gridItem;
 let modeActive = true;
 
 const btnColorActive = function () {
-  modeActive = true;
+  if (!modeActive) {
+    modeActive = true;
+    createGrid(16);
+  }
   btnColor.classList.add('active');
   btnEraser.classList.remove('active');
   btnColor.classList.add('engaged');
@@ -26,13 +29,17 @@ const btnColorActive = function () {
 };
 
 const btnRainbowActive = function () {
-  modeActive = false;
+  if (modeActive) {
+    modeActive = false;
+    createGrid(16);
+  }
   btnColor.classList.remove('active');
   btnEraser.classList.remove('active');
   btnRainbowMode.classList.add('active');
   btnRainbowMode.classList.add('engaged');
   btnColor.classList.remove('engaged');
 };
+
 btnColor.addEventListener('click', btnColorActive);
 
 btnEraser.addEventListener('click', function () {
@@ -106,6 +113,7 @@ const createGrid = function (a) {
         } else {
           btnRainbowActive();
         }
+
         gridItem.style.backgroundColor = 'white';
         gridItem.classList.remove('sqcolor');
       });
@@ -119,3 +127,11 @@ btn64.addEventListener('click', setGrid);
 btn16.addEventListener('click', setGrid);
 btn8.addEventListener('click', setGrid);
 btn4.addEventListener('click', setGrid);
+
+console.log(modeActive);
+
+const hello = document.querySelector('.hello');
+
+hello.addEventListener('click', function () {
+  console.log(modeActive);
+});
