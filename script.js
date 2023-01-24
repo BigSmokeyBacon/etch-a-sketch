@@ -197,6 +197,14 @@ const createGrid = function (a) {
   gridItems.forEach(function (gridItem) {
     sketchpad.appendChild(gridItem);
     gridItem.classList.add(`square${a}`);
+    gridItem.addEventListener('mouseover', function () {
+      gridItem.classList.add('sqcolor');
+      if (btnColor.classList.contains('active')) {
+        gridItem.classList.add('sqcolor');
+      } else {
+        gridItem.classList.remove('sqcolor');
+      }
+    });
   });
 };
 // setGrid();
@@ -208,10 +216,23 @@ const setGrid = function (e) {
   } else if (e.target.innerHTML === '8 x 8') {
     console.log('on it again');
     createGrid(8);
+  } else if (e.target.innerHTML === '64 x 64') {
+    console.log('on it thrice');
+    createGrid(64);
   }
 };
+
+btn64.addEventListener('click', setGrid);
 btn16.addEventListener('click', setGrid);
 btn8.addEventListener('click', setGrid);
 // gridItems();
 // console.log(gridItem);
-// console.log(gridItems);
+// // console.log(gridItems);
+// gridItem[0].addEventListener('mouseover', function () {
+//   gridItem[0].classList.add('sqcolor');
+//   if (btnColor.classList.contains('active')) {
+//     gridItem[0].classList.add('sqcolor');
+//   } else {
+//     gridItem[0].classList.remove('sqcolor');
+//   }
+// });
