@@ -204,12 +204,18 @@ const createGrid = function (a) {
       } else {
         gridItem.classList.remove('sqcolor');
       }
+      btnClear.addEventListener('click', function () {
+        gridItem.classList.remove('sqcolor');
+      });
     });
   });
 };
 // setGrid();
 
 const setGrid = function (e) {
+  btnColor.classList.add('active');
+  btnEraser.classList.remove('active');
+
   if (e.target.innerHTML === '16 x 16') {
     console.log('on it');
     createGrid(16);
@@ -219,12 +225,19 @@ const setGrid = function (e) {
   } else if (e.target.innerHTML === '64 x 64') {
     console.log('on it thrice');
     createGrid(64);
+  } else if (e.target.innerHTML === '4 x 4') {
+    console.log('on it four');
+    createGrid(4);
   }
 };
 
 btn64.addEventListener('click', setGrid);
 btn16.addEventListener('click', setGrid);
 btn8.addEventListener('click', setGrid);
+btn4.addEventListener('click', setGrid);
+// btnClear.addEventListener('click', function () {
+//   gridItem.classList.remove('sqcolor');
+// });
 // gridItems();
 // console.log(gridItem);
 // // console.log(gridItems);
