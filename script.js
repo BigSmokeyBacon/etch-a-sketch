@@ -16,6 +16,7 @@ const sketchpad = document.querySelector('.sketchpad');
 
 const btnColor = document.querySelector('.color');
 const btnEraser = document.querySelector('.eraser');
+const btnClear = document.querySelector('.clear');
 
 const btn64 = document.querySelector('.sixtyfour');
 const btn16 = document.querySelector('.sixteen');
@@ -23,6 +24,7 @@ const btn8 = document.querySelector('.eight');
 const btn4 = document.querySelector('.four');
 
 let playerInput;
+let gridItem;
 
 sketchpad.appendChild(container64);
 sketchpad.appendChild(container16);
@@ -154,10 +156,10 @@ function addGridItem8() {
   }
 }
 
-addGridItem16();
+// addGridItem16();
 
 btn64.addEventListener('click', addGridItem64);
-btn16.addEventListener('click', addGridItem16);
+// btn16.addEventListener('click', addGridItem16);
 btn8.addEventListener('click', addGridItem8);
 btn4.addEventListener('click', addGridItem4);
 
@@ -170,3 +172,46 @@ btnEraser.addEventListener('click', function () {
   btnColor.classList.remove('active');
   btnEraser.classList.add('active');
 });
+
+btnClear.addEventListener('click', function () {
+  container16.innerHTML.classList.remove('sqcolor');
+});
+
+function generateGridItemAmount(a) {
+  sketchpad.innerHTML = '';
+  playerInput = a * a;
+  gridItem = [];
+
+  for (let i = 0; i < playerInput; i++) {
+    let div = document.createElement('div');
+    div.className = 'square';
+    // div.textContent = `${i}`;
+    gridItem.push(div);
+  }
+
+  return gridItem;
+}
+
+const createGrid = function (a) {
+  let gridItems = generateGridItemAmount(a);
+  gridItems.forEach(function (gridItem) {
+    sketchpad.appendChild(gridItem);
+    gridItem.classList.add(`square${a}`);
+  });
+};
+// setGrid();
+
+const setGrid = function (e) {
+  if (e.target.innerHTML === '16 x 16') {
+    console.log('on it');
+    createGrid(16);
+  } else if (e.target.innerHTML === '8 x 8') {
+    console.log('on it again');
+    createGrid(8);
+  }
+};
+btn16.addEventListener('click', setGrid);
+btn8.addEventListener('click', setGrid);
+// gridItems();
+// console.log(gridItem);
+// console.log(gridItems);

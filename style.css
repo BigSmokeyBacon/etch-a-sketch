@@ -23,7 +23,7 @@ body {
   margin: 0px;
   gap: 0px;
 }
-.screen {
+.sketchpad {
   display: flex;
   flex: none;
   width: 480px;
@@ -58,4 +58,8 @@ body {
 
 .hidden {
   display: none;
+}
+
+.square {
+  border: 1px solid black;
 }
