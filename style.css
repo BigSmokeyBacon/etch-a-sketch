@@ -69,7 +69,26 @@ body {
 .hidden {
   display: none;
 }
+
+.btn {
+  background-color: rgb(128, 128, 128, 0.2);
+  padding: 8px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+}
 .active {
   background-color: black;
   color: white;
+}
+.mode {
+  margin: 8px;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+.clear {
+  margin: 2px;
+  display: flex;
+  justify-content: center;
 }
