@@ -33,8 +33,6 @@ function generateGridItemAmount(a) {
 
   for (let i = 0; i < playerInput; i++) {
     let div = document.createElement('div');
-    div.className = 'square';
-    // div.textContent = `${i}`;
     gridItem.push(div);
   }
 

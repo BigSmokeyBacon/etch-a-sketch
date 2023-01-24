@@ -13,53 +13,44 @@ body {
 
 .sketchpad {
   display: flex;
+  flex: none;
+  flex-wrap: wrap;
   width: 480px;
   height: 480px;
-  justify-content: center;
-  align-items: center;
-  border-color: black;
-  border: 5px;
-  border-style: solid;
+  border: 5px solid black;
   margin: 0px;
   gap: 0px;
 }
-.sketchpad {
-  display: flex;
-  flex: none;
-  width: 480px;
-  height: 480px;
-  border: 5px solid red;
-  flex-wrap: wrap;
-}
-.square16 {
-  box-sizing: border-box;
-  height: 30px;
-  width: 30px;
-}
+
 .sqcolor {
   background-color: black;
 }
 
-.square8 {
+.square64,
+.square16,
+.square8,
+.square4 {
   box-sizing: border-box;
+  border: 1px solid black;
+}
+.square64 {
+  height: 7.5px;
+  width: 7.5px;
+}
+.square16 {
+  height: 30px;
+  width: 30px;
+}
+
+.square8 {
   height: 60px;
   width: 60px;
 }
 .square4 {
-  box-sizing: border-box;
   height: 120px;
   width: 120px;
-}
-.square64 {
-  box-sizing: border-box;
-  height: 7.5px;
-  width: 7.5px;
 }
 
 .hidden {
   display: none;
-}
-
-.square {
-  border: 1px solid black;
 }
