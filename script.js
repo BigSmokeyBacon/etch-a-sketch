@@ -2,30 +2,32 @@
 
 const sketchpad = document.querySelector('.sketchpad');
 
+const slider = document.querySelector('.slider');
+
 const btnColor = document.querySelector('.color');
 const btnEraser = document.querySelector('.eraser');
 const btnClear = document.querySelector('.clear');
 const btnRainbowMode = document.querySelector('.rainbow');
 
-const btn64 = document.querySelector('.sixtyfour');
-const btn16 = document.querySelector('.sixteen');
-const btn8 = document.querySelector('.eight');
-const btn4 = document.querySelector('.four');
+const btnExtraSmall = document.querySelector('.hundred');
+const btnSmall = document.querySelector('.sixtyfour');
+const btnLarge = document.querySelector('.thirtytwo');
+const btnExtraLarge = document.querySelector('.sixteen');
 
 let playerInput;
 let gridItem;
-let gridSize;
+let gridSize = 64;
 let modeActive = true;
 
 const getGridSize = function () {
   if (gridSize === 16) {
     createGrid(16);
+  } else if (gridSize === 32) {
+    createGrid(32);
   } else if (gridSize === 64) {
     createGrid(64);
-  } else if (gridSize === 8) {
-    createGrid(8);
-  } else if (gridSize === 4) {
-    createGrid(4);
+  } else if (gridSize === 100) {
+    createGrid(100);
   } else {
     createGrid(16);
   }
@@ -91,27 +93,71 @@ const setGrid = function (e) {
   } else {
     btnRainbowActive();
   }
-
-  if (e.target.innerHTML === '16 x 16') {
+  if (e.target.innerHTML === 'Extra Large') {
     gridSize = 16;
-    console.log(gridSize);
     createGrid(16);
-  } else if (e.target.innerHTML === '8 x 8') {
-    gridSize = 8;
-
-    createGrid(8);
-  } else if (e.target.innerHTML === '64 x 64') {
+  } else if (e.target.innerHTML === 'Small') {
     gridSize = 64;
 
     createGrid(64);
-  } else if (e.target.innerHTML === '4 x 4') {
-    gridSize = 4;
+  } else if (e.target.innerHTML === 'Extra Small') {
+    gridSize = 100;
 
-    createGrid(4);
+    createGrid(100);
+  } else if (e.target.innerHTML === 'Large') {
+    gridSize = 32;
+
+    createGrid(32);
+  }
+  if (gridSize === 16) {
+    btnExtraLarge.classList.add('active');
+
+    btnLarge.classList.remove('active');
+    btnSmall.classList.remove('active');
+    btnExtraSmall.classList.remove('active');
+
+    btnExtraLarge.removeEventListener('click', setGrid);
+    btnLarge.addEventListener('click', setGrid);
+    btnSmall.addEventListener('click', setGrid);
+    btnExtraSmall.addEventListener('click', setGrid);
+  } else if (gridSize === 32) {
+    btnLarge.classList.add('active');
+
+    btnExtraLarge.classList.remove('active');
+    btnSmall.classList.remove('active');
+    btnExtraSmall.classList.remove('active');
+
+    btnLarge.removeEventListener('click', setGrid);
+    btnExtraLarge.addEventListener('click', setGrid);
+    btnSmall.addEventListener('click', setGrid);
+    btnExtraSmall.addEventListener('click', setGrid);
+  } else if (gridSize === 64) {
+    btnSmall.classList.add('active');
+
+    btnExtraLarge.classList.remove('active');
+    btnLarge.classList.remove('active');
+    btnExtraSmall.classList.remove('active');
+
+    btnSmall.removeEventListener('click', setGrid);
+    btnExtraLarge.addEventListener('click', setGrid);
+    btnLarge.addEventListener('click', setGrid);
+    btnExtraSmall.addEventListener('click', setGrid);
+  } else if (gridSize === 100) {
+    btnExtraSmall.classList.add('active');
+
+    btnExtraLarge.classList.remove('active');
+    btnLarge.classList.remove('active');
+    btnSmall.classList.remove('active');
+
+    btnExtraSmall.removeEventListener('click', setGrid);
+    btnExtraLarge.addEventListener('click', setGrid);
+    btnLarge.addEventListener('click', setGrid);
+    btnSmall.addEventListener('click', setGrid);
   }
 };
 
 const createGrid = function (a) {
+  gridSize = a;
   let gridItems = generateGridItemAmount(a);
   gridItems.forEach(function (gridItem) {
     sketchpad.appendChild(gridItem);
@@ -144,11 +190,8 @@ const createGrid = function (a) {
   });
 };
 
-createGrid(16);
+createGrid(gridSize);
 
-btn64.addEventListener('click', setGrid);
-btn16.addEventListener('click', setGrid);
-btn8.addEventListener('click', setGrid);
-btn4.addEventListener('click', setGrid);
-
-console.log(gridSize);
+btnExtraSmall.addEventListener('click', setGrid);
+btnLarge.addEventListener('click', setGrid);
+btnExtraLarge.addEventListener('click', setGrid);

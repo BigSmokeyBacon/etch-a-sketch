@@ -4,6 +4,7 @@ body {
 
 .main-body {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
   justify-content: center;
@@ -25,12 +26,16 @@ body {
   background-color: black;
 }
 
+.square100,
 .square64,
-.square16,
-.square8,
-.square4 {
+.square32,
+.square16 {
   box-sizing: border-box;
-  border: 1px solid black;
+  border: 1px solid rgb(128, 128, 128, 0.2);
+}
+.square100 {
+  height: 4.8px;
+  width: 4.8px;
 }
 .square64 {
   height: 7.5px;
@@ -45,9 +50,9 @@ body {
   height: 60px;
   width: 60px;
 }
-.square4 {
-  height: 120px;
-  width: 120px;
+.square32 {
+  height: 15px;
+  width: 15px;
 }
 
 .hidden {
