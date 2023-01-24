@@ -101,6 +101,11 @@ const createGrid = function (a) {
         gridItem.classList.remove('sqcolor');
       }
       btnClear.addEventListener('click', function () {
+        if (modeActive) {
+          btnColorActive();
+        } else {
+          btnRainbowActive();
+        }
         gridItem.style.backgroundColor = 'white';
         gridItem.classList.remove('sqcolor');
       });
