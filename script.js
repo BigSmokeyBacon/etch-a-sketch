@@ -82,3 +82,18 @@ btn64.addEventListener('click', setGrid);
 btn16.addEventListener('click', setGrid);
 btn8.addEventListener('click', setGrid);
 btn4.addEventListener('click', setGrid);
+
+const getRandomColor = function () {
+  let a = Math.trunc(Math.random() * 255) + 1;
+  let b = Math.trunc(Math.random() * 255) + 1;
+  let c = Math.trunc(Math.random() * 255) + 1;
+  return `${a}, ${b}, ${c}`;
+};
+
+const getRandomRGB = function () {
+  let randomColor = getRandomColor();
+  return (sketchpad.style.borderColor = `rgb(${randomColor})`);
+};
+
+console.log(getRandomRGB());
+console.log(getRandomColor());
