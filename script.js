@@ -163,7 +163,6 @@ const createGrid = function (a) {
     sketchpad.appendChild(gridItem);
     gridItem.classList.add(`square${a}`);
     gridItem.addEventListener('mouseover', function () {
-      gridItem.classList.add('sqcolor');
       if (btnColor.classList.contains('active')) {
         gridItem.style.backgroundColor = 'black';
       } else if (btnEraser.classList.contains('active')) {
@@ -174,7 +173,6 @@ const createGrid = function (a) {
           return (gridItem.style.backgroundColor = `rgb(${randomColor})`);
         }
         getRandomRGB();
-        gridItem.classList.remove('sqcolor');
       }
       btnClear.addEventListener('click', function () {
         if (modeActive) {
